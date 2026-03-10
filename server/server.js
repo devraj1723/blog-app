@@ -27,6 +27,8 @@ app.get('/', (req, res) => {
 
 // Database connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/blog-app';
+console.log('Attempting to connect to MongoDB...');
+
 mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
@@ -36,4 +38,6 @@ mongoose.connect(MONGODB_URI)
     })
     .catch((err) => {
         console.error('MongoDB connection error:', err);
+        console.error('Error details:', JSON.stringify(err, null, 2));
+        process.exit(1);
     });
