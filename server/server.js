@@ -5,6 +5,10 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+console.log('Environment check:');
+console.log('MONGODB_URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
+console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'Set' : 'Not set');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
